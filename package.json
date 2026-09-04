@@ -1,0 +1,27 @@
+{
+  "name": "custom-employee-portal-zoho-one-integration",
+  "version": "1.0.0",
+  "description": "Custom Employee Portal with Role-Based Access Control and Zoho One API Integration",
+  "scripts": {
+    "install:backend": "npm --prefix backend install",
+    "install:frontend": "npm --prefix frontend install",
+    "install-all": "npm run install:backend && npm run install:frontend",
+    "seed": "npm --prefix backend run seed",
+    "test": "npm --prefix backend test",
+    "build": "npm --prefix frontend run build",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev"
+  },
+  "keywords": [
+    "zoho-one",
+    "rbac",
+    "employee-portal",
+    "express",
+    "react",
+    "sqlite",
+    "jwt",
+    "audit-logs"
+  ],
+  "author": "Antigravity Engineering",
+  "license": "MIT"
+}
