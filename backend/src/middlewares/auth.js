@@ -19,7 +19,8 @@ const authenticateToken = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const secret = process.env.JWT_SECRET || 'zoho_portal_jwt_secret_key_production_grade_super_secure_2026';
+    const decoded = jwt.verify(token, secret);
     
     // Refresh user details from DB to ensure up-to-date roles & active status
     const user = UserModel.findById(decoded.id);

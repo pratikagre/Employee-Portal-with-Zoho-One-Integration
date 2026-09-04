@@ -83,7 +83,8 @@ exports.login = async (req, res) => {
       name: `${user.first_name} ${user.last_name}`,
     };
 
-    const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, {
+    const secret = process.env.JWT_SECRET || 'zoho_portal_jwt_secret_key_production_grade_super_secure_2026';
+    const token = jwt.sign(tokenPayload, secret, {
       expiresIn: process.env.JWT_EXPIRES_IN || '24h',
     });
 
@@ -119,7 +120,7 @@ exports.login = async (req, res) => {
     console.error('Login error:', error);
     return res.status(500).json({
       success: false,
-      message: 'An unexpected error occurred during authentication.',
+      message: error.message || 'An unexpected error occurred during authentication.',
     });
   }
 };
